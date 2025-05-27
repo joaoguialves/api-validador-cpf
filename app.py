@@ -17,8 +17,9 @@ def validar_cpf(cpf):
     if len(cpf) != 11:
         return False
     
-    # Verifica se todos os dígitos são iguais
-    if cpf == cpf[0] * 11:
+    # Verifica se todos os dígitos são iguais (sequências inválidas)
+    sequencias_invalidas = [str(i) * 11 for i in range(10)]
+    if cpf in sequencias_invalidas:
         return False
     
     # Validação do primeiro dígito verificador
